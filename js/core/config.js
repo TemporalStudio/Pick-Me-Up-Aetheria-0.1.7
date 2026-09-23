@@ -1,0 +1,11 @@
+export const CONFIG = {
+  VERSION: "0.1.7",
+  SAVE_KEY: "aetheria_game_saves_v1",
+  MAX_TOWER_FLOOR: 100,
+  MAX_SAVE_SLOTS: 10,
+  STARTING_GOLD: 1000,
+  STARTING_GEMS: 100,
+  STARTING_TICKETS: 3,
+  HERO_LEVEL_CAPS: { 1:20, 2:30, 3:40, 4:50, 5:60, 6:99 },
+  HERO_TEST_EXP: 1000
+};

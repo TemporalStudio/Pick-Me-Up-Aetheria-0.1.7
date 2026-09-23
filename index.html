@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070a12">
+  <title>Aetheria — Update 0.1.7</title>
+
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/title-story.css">
+  <link rel="stylesheet" href="./css/hub.css">
+  <link rel="stylesheet" href="./css/modal.css">
+  <link rel="stylesheet" href="./css/hero.css">
+  <link rel="stylesheet" href="./css/recruitment.css">
+  <link rel="stylesheet" href="./css/progression.css">
+  <link rel="stylesheet" href="./css/save-load.css">
+  <link rel="stylesheet" href="./css/database.css">
+  <link rel="stylesheet" href="./css/party.css">
+  <link rel="stylesheet" href="./css/inventory.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+  <div id="game">
+    <div id="saveManagerTemplate" hidden></div>
+    <div id="loadManagerTemplate" hidden></div>
+
+    <section id="title" class="screen active">
+      <div class="title-wrap">
+        <div class="emblem"><span>✦</span></div>
+        <div class="logo">AETHERIA</div>
+        <div class="tag">THE WORLD AFTER THE END</div>
+        <div class="version">SYSTEM UPDATE 0.1.7</div>
+        <div class="menu">
+          <button class="btn primary" id="newGame">NEW GAME</button>
+          <button class="btn" id="loadGameTitle">LOAD GAME</button>
+          <button class="btn" id="saveGameTitle">SAVE GAME</button>
+          <button class="btn" id="settings">SETTINGS</button>
+          <button class="btn danger" id="exit">EXIT</button>
+        </div>
+        <div class="footer">GAME MASTER SYSTEM • AETHERIA CORE</div>
+      </div>
+    </section>
+
+    <section id="story" class="screen">
+      <div class="center card">
+        <div class="story-title">AETHERIA // PROLOGUE</div>
+        <div class="story" id="storyText"></div>
+        <div class="actions">
+          <button class="btn" id="skip">SKIP</button>
+          <button class="btn primary" id="next">NEXT</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="creation" class="screen">
+      <div class="center card">
+        <div class="story-title">GAME MASTER SYSTEM // INITIALIZATION</div>
+        <div class="story" style="min-height:210px;">
+          <div>
+            <h2 style="margin-bottom:12px;">Choose your Master name</h2>
+            <p style="color:var(--muted);font-size:13px;line-height:1.7;">
+              The system has selected you.<br>
+              Enter the name by which Aetheria will remember its Master.
+            </p>
+          </div>
+        </div>
+        <input id="masterName" maxlength="20" placeholder="3–20 CHARACTERS">
+        <div class="error" id="error"></div>
+        <button class="btn primary" id="confirm">CONFIRM MASTER</button>
+      </div>
+    </section>
+
+    <section id="hub" class="screen">
+      <div class="hub">
+        <aside class="panel left">
+          <div class="panel-head">
+            <small>GAME MASTER SYSTEM</small>
+            <strong>AETHERIA CORE</strong>
+          </div>
+          <div class="master">
+            <div class="master-name" id="mName">MASTER</div>
+            <div class="master-id" id="mId">MASTER-000000</div>
+            <div class="stat"><span>Rank</span><b id="mRank">F-Rank</b></div>
+            <div class="stat"><span>Tower</span><b id="mFloor">Floor 0 / 100</b></div>
+            <div class="stat"><span>Heroes</span><b id="mHeroes">0</b></div>
+            <div class="stat"><span>Gold</span><b id="mGold">1,000</b></div>
+            <div class="stat"><span>Gems</span><b id="mGems">100</b></div>
+          </div>
+          <div class="fairy-mini">
+            <div class="top"><b>✦ FAIRY // AETHERIA</b><span class="fairy-dot"></span></div>
+            <p id="fairyMini">I'm online, Master. I'll keep watching the state of Aetheria.</p>
+          </div>
+          <nav class="nav">
+            <button class="btn active" data-open="overview">⌂ Main Menu</button>
+            <button class="btn" data-open="status">◈ Master Status</button>
+            <button class="btn" data-open="recruitment">✦ Recruitment Log</button>
+            <button class="btn" data-open="database">▦ DATA BASE</button>
+            <button class="btn" data-open="heroes">♙ Hero Roster</button>
+            <button class="btn" data-open="party">⚔ Party Management</button>
+            <button class="btn" data-open="inventory">▣ Inventory</button>
+            <button class="btn" data-open="town">⌂ Town Square</button>
+            <button class="btn" data-open="dungeon">◇ Dungeon</button>
+            <button class="btn" id="saveHub">▤ Save Game</button>
+            <button class="btn" id="loadHub">▤ Load Game</button>
+            <button class="btn danger" id="logout">LOGOUT</button>
+          </nav>
+        </aside>
+
+        <main class="panel main">
+          <div class="hub-top">
+            <div class="metric"><small>TOWER PROGRESS</small><strong id="topFloor">0 / 100</strong></div>
+            <div class="metric"><small>TOWN HAPPINESS</small><strong id="happiness">50%</strong></div>
+            <div class="metric"><small>TOWN FEAR</small><strong id="fear">0%</strong></div>
+            <div class="metric"><small>FAIRY MOOD</small><strong id="mood">CURIOUS</strong></div>
+          </div>
+          <div class="content" id="content"></div>
+        </main>
+      </div>
+    </section>
+
+    <div class="modal" id="modal">
+      <div class="modal-box">
+        <div class="modal-head">
+          <h2 id="modalTitle">System</h2>
+          <button class="close" id="modalClose">×</button>
+        </div>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
